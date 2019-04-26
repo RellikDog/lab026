@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// const cowsay = require('cowsay');
+import cowsay from 'cowsay-browser';
+import faker from 'faker';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props){//props=html attr
+    super();//using react.components constructor
+    this.state ={};
+    this.state.content = 'click it!';
+  }
+  handleButtonClick = () => {
+    this.setState((PS)=>{
+      let name = faker.name.findName();
+      let numba = faker.phone.phoneNumber();
+      return{
+        content: `Call ${name} @ ${numba}`
+      };
+    });
+  };
+
+  render(){
+    return(<main>
+      <h1>Cow Say Lorem</h1>
+      <pre>
+        {
+          cowsay.say({
+            text : `${this.state.content}`,
+            e : "oO",
+            T : "U "
+          })
+        }
+      </pre>
+      <button onClick={this.handleButtonClick}>click me!</button>
+    </main>);
+  };
 }
 
-export default App;
+//export default App;
