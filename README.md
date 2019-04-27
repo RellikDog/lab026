@@ -1,5 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/faCcebook/create-react-app).
-#Cowsay Call Me!
+##Cowsay Call Me!
 Are you lonely? Then use this app to have a cow give you a fake person to call.4
 
 Uses FakerJS npm package to generate names and phone numbers.
